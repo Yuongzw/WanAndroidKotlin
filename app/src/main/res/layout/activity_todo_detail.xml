@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yuong.wanandroidkotlin.ui.todo.viewModel.TodoDetailViewModel"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.TodoDialogActivity">
+
+        <include
+            android:id="@+id/dialog_title"
+            layout="@layout/title_bar"
+            app:layout_constraintBottom_toTopOf="@+id/todo_myclearedittext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/todo_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="64dp"
+            android:text="添加代办清单"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_title" />
+
+
+        <TextView
+            android:id="@+id/todo_textview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="64dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="64dp"
+            android:text="标题*"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/todo_dialog_title" />
+
+        <com.yuong.wanandroidkotlin.widget.MyClearEditText
+            android:id="@+id/todo_myclearedittext"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="55dp"
+            android:enabled="@{viewModel.enable}"
+            android:text="@={viewModel.title}"
+            app:layout_constraintStart_toEndOf="@+id/todo_textview2"
+            app:layout_constraintTop_toBottomOf="@+id/todo_dialog_title" />
+
+        <TextView
+            android:id="@+id/todo_textview3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="详  情"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintStart_toStartOf="@+id/todo_textview2"
+            app:layout_constraintTop_toBottomOf="@+id/todo_textview2" />
+
+        <com.yuong.wanandroidkotlin.widget.MyClearEditText
+            android:id="@+id/todo_myclearedittext2"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:enabled="@{viewModel.enable}"
+            android:text="@={viewModel.content}"
+            app:layout_constraintStart_toEndOf="@+id/todo_textview3"
+            app:layout_constraintTop_toBottomOf="@+id/todo_textview2"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/todo_textview4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="时间*"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintStart_toStartOf="@+id/todo_textview3"
+            app:layout_constraintTop_toBottomOf="@+id/todo_textview3" />
+
+        <com.yuong.wanandroidkotlin.widget.MyClearEditText
+            android:id="@+id/et_date"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:enabled="@{viewModel.enable}"
+            android:focusable="false"
+            android:text="@={viewModel.date}"
+            app:layout_constraintStart_toEndOf="@+id/todo_textview4"
+            app:layout_constraintTop_toBottomOf="@+id/todo_myclearedittext2"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_5"
+            app:layout_constraintTop_toBottomOf="@+id/todo_textview4">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"
+                app:pressed_color="@color/orange"
+                app:stroke_width="2dp"
+                app:corners_radius="8dp"
+                app:unpressed_color="@color/blue2"/>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/sp_18"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:visibility="@{viewModel.isShow ? View.VISIBLE : View.GONE}"
+                android:text="@{viewModel.btnText}"
+                app:pressed_color="@color/orange"
+                app:stroke_width="2dp"
+                app:corners_radius="8dp"
+                app:unpressed_color="@color/blue2"/>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
+

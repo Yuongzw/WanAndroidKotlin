@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+        <variable
+            name="datasBean"
+            type="com.yuong.wanandroidkotlin.bean.TodoListBean.DataBean.DatasBean"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_15"
+        >
+
+        <ImageView
+            android:id="@+id/iv_complete_or_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_complete"/>
+
+        <TextView
+            android:id="@+id/tv_todo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_complete_or_cancel"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/blue"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:text="@{datasBean.title}"/>
+
+        <TextView
+            android:id="@+id/tv_content_or_finishDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_todo_title"
+            android:layout_toRightOf="@+id/iv_complete_or_cancel"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:textSize="@dimen/sp_14"
+            android:text="@{datasBean.content}"/>
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_delete"
+            android:backgroundTint="@color/gray"
+            android:layout_alignParentRight="true" />
+
+
+    </RelativeLayout>
+</layout>

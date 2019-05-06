@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wan_android_gb"
+    tools:context=".ui.SplashActivity"
+    android:gravity="center"
+    android:id="@+id/ll_splash"
+    tools:ignore="ResourceName">
+
+    <yanzhikai.textpath.SyncTextPathView
+        android:id="@+id/atpv_as"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:duration="3000"
+        app:paintStrokeColor="#9ea9a76f"
+        android:layout_gravity="center"
+        app:paintStrokeWidth="1dip"
+        app:pathStrokeColor="@color/white"
+        app:showPainter="true"
+        app:text="Wan Android APP"
+        app:textInCenter="true"
+        app:textSize="@dimen/sp_18" />
+
+</LinearLayout>

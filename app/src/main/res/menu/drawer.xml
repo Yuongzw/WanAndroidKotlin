@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="ResourceName">
-    <group android:title="系统设置">
+    <group android:title="@string/my_menu">
 
         <item
             android:id="@+id/my_collected"
             android:icon="@drawable/ic_collected"
-            android:title="我的收藏" />
+            android:title="@string/my_collect" />
 
         <item
             android:id="@+id/my_todo"
             android:icon="@drawable/ic_todo"
-            android:title="我的代办" />
+            android:title="@string/my_todo" />
 
         <item
             android:id="@+id/logout"
             android:icon="@drawable/ic_logout"
-            android:title="退出登录" />
+            android:title="@string/logout" />
 
     </group>
+
+    <item
+        android:title="@string/other"
+        tools:ignore="HardcodedText">
+        <menu>
+            <item
+                android:id="@+id/version_up"
+                android:icon="@drawable/ic_version_up"
+                android:title="@string/update" />
+
+            <item
+                android:id="@+id/setting"
+                android:icon="@drawable/ic_setting"
+                android:title="@string/setting"
+                />
+        </menu>
+    </item>
 </menu>

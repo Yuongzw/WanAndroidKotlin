@@ -53,7 +53,7 @@ open class MyRetrofit {
         //设置缓存路径 内置存储
         //File httpCacheDirectory = new File(context.getCacheDir(), "responses");
         //外部存储
-        val httpCacheDirectory = File(MyApplication.context!!.getExternalCacheDir(), "responses")
+        val httpCacheDirectory = File(MyApplication.context!!.cacheDir, "responses")
         //设置缓存 10M
         val cacheSize: Long = 10 * 1024 * 1024
         val cache = Cache(httpCacheDirectory, cacheSize)
@@ -71,6 +71,22 @@ open class MyRetrofit {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(MyConstans.BASE_URL)
+                .build()
+        api = retrofit.create(NetApi::class.java)
+    }
+
+    constructor(uri: String) {
+        //外部存储
+        val client = OkHttpClient.Builder()
+                .addInterceptor(AddCookiesInterceptor())
+                .addInterceptor(GetCookiesInterceptor())
+                .connectTimeout(10, TimeUnit.SECONDS).build()
+        val retrofit = Retrofit.Builder()
+                .client(client)
+                .addConverterFactory(ScalarsConverterFactory.create())////增加返回值为String的支持
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .baseUrl(uri)
                 .build()
         api = retrofit.create(NetApi::class.java)
     }

@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">玩Android</string>
     <string name="author">作者:</string>
+    <string name="logout">退出登录</string>
+    <string name="my_todo">我的代办</string>
+    <string name="my_collect">我的收藏</string>
+    <string name="my_menu">我的菜单</string>
+    <string name="other">其他</string>
+    <string name="update">版本更新</string>
+    <string name="update_time">更新时间</string>
+    <string name="downloading">正在下载...</string>
+    <string name="setting">设置</string>
 </resources>

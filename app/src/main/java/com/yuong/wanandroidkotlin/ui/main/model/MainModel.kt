@@ -9,12 +9,17 @@ interface MainModel {
      * @param password
      * @param loadListener
      */
-    abstract fun login(username: String, password: String, loadListener: BaseLoadListener<Any>)
+    fun login(username: String, password: String, loadListener: BaseLoadListener<Any>)
 
 
     /**
      * 退出登录
      * @param loadListener
      */
-    abstract fun logout(loadListener: BaseLoadListener<Any>)
+    fun logout(loadListener: BaseLoadListener<Any>)
+
+    /**
+     * 获取APP版本信息
+     */
+    fun getAppInfo(apiKey: String, appKey: String, loadListener: BaseLoadListener<Any>)
 }

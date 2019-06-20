@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            android:padding="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/update_time"
+                android:textColor="#bab5b5"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:id="@+id/tv_update_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/update_time"
+                android:textColor="#bab5b5"
+                android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/current_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            android:padding="2dp"
+            android:text="当前版本：1.0.6"
+            android:textColor="#bab5b5"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/update_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            android:padding="2dp"
+            android:text="最新版本：1.0.7"
+            android:textColor="#bab5b5"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv_update_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:padding="@dimen/dp_5"
+            android:text="1.修复地理位置显示偏移"
+            android:textColor="#bab5b5"
+            android:textSize="@dimen/sp_14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dp_20">
+
+            <com.yuong.wanandroidkotlin.widget.SmoothCheckBox
+                android:id="@+id/smoothCheckBox"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                app:color_checked="#149A45"
+                app:color_unchecked="#968d8d"
+                app:color_unchecked_stroke="#968d8d"
+                app:stroke_width="1dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:textColor="#bab5b5"
+                android:text="下次不再弹出" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_progress"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dp_10"
+            android:text="@string/downloading"
+            android:textColor="#bab5b5"
+            android:textSize="@dimen/sp_18" />
+
+        <com.daimajia.numberprogressbar.NumberProgressBar
+            android:id="@+id/numberProgressBar"
+            style="@style/NumberProgressBar_Relax_Blue"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

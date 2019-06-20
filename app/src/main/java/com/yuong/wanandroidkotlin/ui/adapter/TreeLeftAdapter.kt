@@ -28,7 +28,7 @@ class TreeLeftAdapter(context: Context) : BaseQuickAdapter<TreeBean.DataBean, Ba
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
-        val binding = DataBindingUtil.getBinding<TreeLeftItemBinding>(holder!!.itemView)
+        val binding = DataBindingUtil.getBinding<TreeLeftItemBinding>(holder.itemView)
         if (this.position == position) {
             binding!!.tvTreeLeftItem.setTextColor(Color.BLUE)
         } else{

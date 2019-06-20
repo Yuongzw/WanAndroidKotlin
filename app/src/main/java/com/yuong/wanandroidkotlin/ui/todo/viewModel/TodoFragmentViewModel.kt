@@ -124,7 +124,7 @@ class TodoFragmentViewModel : BaseViewModel<FragmentTodoBinding>(), BaseLoadList
                     sameList.add(datas.get(i))
 
                 } else {
-                    val tempList = java.util.ArrayList<TodoListBean.DataBean.DatasBean>()
+                    val tempList = ArrayList<TodoListBean.DataBean.DatasBean>()
                     tempList.addAll(sameList)
                     child.add(tempList)
                     group.add(tempList[0].dateStr!!)

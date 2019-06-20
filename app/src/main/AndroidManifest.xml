@@ -3,15 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yuong.wanandroidkotlin">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".base.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -26,6 +31,34 @@
             android:name="com.yuong.wanandroidkotlin.help.MyGlideModule"
             android:value="GlideModule"
             tools:node="remove"/>
+
+        <provider
+            android:name=".provider.BuglyFileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="name,authorities,exported,grantUriPermissions">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="name,resource"/>
+        </provider>
+
+        <provider
+            android:name=".provider.MyFileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+                android:theme="@android:style/Theme.Translucent" />
 
         <activity android:name=".ui.SplashActivity"
             android:theme="@style/AppTheme.Launcher">
@@ -46,6 +79,7 @@
         <activity android:name=".ui.collect.ui.CollectActivity"/>
         <activity android:name=".ui.todo.ui.activity.TodoActivity"/>
         <activity android:name=".ui.todo.ui.activity.TodoDetailActivity"/>
+        <activity android:name=".ui.setting.ui.SettingActivity"/>
 
         <activity
             android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"

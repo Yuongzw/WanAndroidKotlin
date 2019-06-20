@@ -2,6 +2,8 @@ package com.yuong.wanandroidkotlin.net
 
 import com.yuong.wanandroidkotlin.bean.*
 import io.reactivex.Observable
+import okhttp3.Response
+import okhttp3.ResponseBody
 import retrofit2.http.*
 
 interface NetApi {
@@ -87,4 +89,8 @@ interface NetApi {
 
     @GET("wxarticle/list/{id}/{page}/json")
     fun getWXArticleData(@Path("id") id: Int, @Path("page") page: Int): Observable<HomeBean>
+
+    @POST("apiv2/app/view")
+    @FormUrlEncoded
+    fun getAppInfo(@Field("_api_key") api_key: String, @Field("appKey") appKey: String): Observable<AppInfoBean>
 }

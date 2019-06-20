@@ -45,11 +45,11 @@ class SettingViewModel : BaseViewModel<ActivitySettingBinding>() {
         }
 
         binding!!.sbNight.setOnCheckedChangeListener { view, isChecked ->
-            if (isChecked) {
-                (activity as SettingActivity).changeSkin(("skin.apk"))
-            } else{
-                (activity as SettingActivity).changeSkin("skin2.apk")
-            }
+//            if (isChecked) {
+//                (activity as SettingActivity).changeSkin(("skin.apk"))
+//            } else{
+//                (activity as SettingActivity).changeSkin("skin2.apk")
+//            }
         }
     }
 }

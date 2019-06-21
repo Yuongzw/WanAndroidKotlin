@@ -22,7 +22,7 @@
   <img src="https://github.com/Yuongzw/WanAndroidKotlin/blob/master/image/已完成清单.png"float: right;display: inline-block;" alt="项目"/>
 </div>
 
-## ependenices
+## dependenices
 <ul>
 <li>Retrofit Okhttp</li>
 <li>Rxjava2</li>
